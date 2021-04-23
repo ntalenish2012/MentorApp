@@ -1,3 +1,97 @@
 <resources>
-    <string name="app_name">MentorApp</string>
+    <string name="app_name">Mentor Matching</string>
+
+    <!--    titles-->
+    <string name="title_profile">Profile Page:</string>
+    <string name="button">Button</string>
+    <string name="textview">TextView</string>
+    <string name="title_main">Mentor Matching</string>
+    <string name="title_questionnaire">Questionnaire:</string>
+    <string name="title_option">Results :</string>
+    <string name="title_login">Log In:</string>
+    <string name="title_signup">Sign Up:</string>
+
+
+    <!--    buttons -->
+    <string name="btn_save">Save</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_sign">Sign Up</string>
+    <string name="btn_out">Log Out</string>
+    <string name="btn_in">Log In</string>
+    <string name="btn_profile">Profile</string>
+    <string name="btn_results">Results</string>
+
+
+
+
+
+
+    <!--    labels-->
+    <string name="lab_name">Name</string>
+    <string name="lab_email">E-mail</string>
+    <string name="lab_role">Role</string>
+    <string name="lab_pass">Password</string>
+    <string name="lab_outcome">Desired Outocome of Mentee/Mentor programme</string>
+
+
+    <!--    Questionnaire-->
+    <string name="q_1">How long have you been working for the company?</string>
+
+    <string name="q1_a">0-1 Years</string>
+    <string name="q1_b">2-3 Years</string>
+    <string name="q1_c">4+ Years</string>
+
+
+    <string name="q_2">Are you a mentor or mentee?</string>
+
+    <string name="q2_a">Mentor</string>
+    <string name="q2_b">Mentee</string>
+
+
+
+    <string name="q_3">Business Specialisation?</string>
+
+    <string name="q3_a">Software Engineering</string>
+    <string name="q3_b">Cloud</string>
+    <string name="q3_c">Business Integration</string>
+    <string name="q3_d">Database</string>
+    <string name="q3_e">Security</string>
+    <string name="q3_f">Consulting</string>
+
+
+
+    <string name="q_4"> Current Location?</string>
+
+    <string name="q4_a">London</string>
+    <string name="q4_b">South West</string>
+    <string name="q4_c">South East</string>
+    <string name="q4_d">East Of England</string>
+    <string name="q4_e">East Midlands</string>
+    <string name="q4_f">West Midlands</string>
+    <string name="q4_g">Wales</string>
+    <string name="q4_h">Yorkshire and the Humber</string>
+    <string name="q4_i">North west</string>
+    <string name="q4_j">North East</string>
+    <string name="q4_k">Scotland</string>
+    <string name="q4_l">Northern Ireland</string>
+    <string name="q4_m">Outside the United Kingdom</string>
+
+
+
+    <string name="q_5">Ideal form of communication?</string>
+
+    <string name="q5_a">In-person Meeting</string>
+    <string name="q5_b">Virtually</string>
+    <string name="q5_c">No preference</string>
+
+
+    <string name="q_6">Communication Availability?</string>
+
+    <string name="q6_a">Everyday</string>
+    <string name="q6_b">A fe times a week</string>
+    <string name="q6_c">A few times a month</string>
+
+
+
 </resources>
