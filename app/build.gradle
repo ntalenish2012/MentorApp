@@ -47,7 +47,9 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment-ktx:2.3.5'
     implementation 'androidx.navigation:navigation-ui-ktx:2.3.5'
     implementation 'com.amplifyframework:core:1.17.1'
+    implementation 'com.amplifyframework:aws-api:1.17.1'
     implementation 'com.amplifyframework:aws-auth-cognito:1.17.1'
+    implementation 'com.amplifyframework:aws-datastore:1.17.1'
     implementation "androidx.multidex:multidex:2.0.1"
 
 

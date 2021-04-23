@@ -58,7 +58,7 @@
 
     <string name="q_3">Business Specialisation?</string>
 
-    <array name="locationArray2">
+    <array name="RoleArray">
 
     <item>Software Engineering</item>
     <item>Cloud</item>
