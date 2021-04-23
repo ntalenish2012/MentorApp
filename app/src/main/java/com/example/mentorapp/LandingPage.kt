@@ -20,7 +20,6 @@ class LandingPage : AppCompatActivity() {
                 startActivity(Intent(this, MainActivity::class.java))
                 Log.i("landingpage ", "true")
                 finish()
-
             } else {
                 startActivity(Intent(this, LogIn::class.java))
                 Log.i("landingpage ", "false")

@@ -14,6 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MentorApp">
         <activity android:name=".MainActivity"/>
+        <activity android:name=".EditUser"/>
         <activity android:name=".LogIn"/>
         <activity android:name=".LandingPage">
             <intent-filter>

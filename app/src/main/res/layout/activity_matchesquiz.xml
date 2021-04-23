@@ -4,12 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".matchesquiz"
+    tools:context=".Results"
     android:background="@drawable/gradient"
     >
 
 
     <LinearLayout
+        android:layout_margin="10dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -24,7 +25,7 @@
             android:background="@drawable/border"
             android:gravity="center"
             android:text="@string/title_option"
-            android:textSize="40sp"
+            android:textSize="55sp"
 
             />
 
@@ -42,7 +43,9 @@
             android:id="@+id/resprofile"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/btn_profile" />
+            android:text="@string/btn_profile"
+            android:layout_marginTop="500dp"
+            android:textSize="30sp"/>
 
     </LinearLayout>
 

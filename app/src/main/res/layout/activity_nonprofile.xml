@@ -16,6 +16,7 @@
         tools:layout_editor_absoluteY="312dp">
 
         <LinearLayout
+            android:layout_margin="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
@@ -27,7 +28,7 @@
                 android:layout_marginTop="80dp"
                 android:text="@string/title_profile"
                 android:gravity="center"
-                android:textSize="40sp"
+                android:textSize="55sp"
                 android:background="@drawable/border"
                 />
 
@@ -36,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 tools:srcCompat="@tools:sample/avatars"
-                android:layout_marginTop="10dp"
+                android:layout_margin="30dp"
                 />
 
             <TextView
