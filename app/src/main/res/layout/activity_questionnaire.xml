@@ -24,10 +24,11 @@
             />
 
         <TextView
-            android:id="@+id/Q1"
+            android:id="@+id/q1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/q_1"
+            android:textStyle="bold"
             android:textSize="20sp"
             android:layout_margin="20dp"/>
 
@@ -65,6 +66,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
+            android:textStyle="bold"
             android:text="@string/q_2"
             android:textSize="20sp" />
 
@@ -96,6 +98,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/q_3"
+            android:textStyle="bold"
             android:textSize="20sp"
             android:layout_margin="20dp"/>
 
@@ -113,6 +116,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/q_4"
+            android:textStyle="bold"
             android:textSize="20sp"
             android:layout_margin="20dp"/>
 
@@ -130,6 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/q_5"
+            android:textStyle="bold"
             android:textSize="20sp"
             android:layout_margin="20dp"/>
 
@@ -167,6 +172,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/q_6"
+            android:textStyle="bold"
             android:textSize="20sp"
             android:layout_margin="20dp"/>
 

@@ -37,18 +37,4 @@ class LogIn: AppCompatActivity() {
         }
     }
 
-    private fun setupAuthButton(userData: UserData) {
-
-        // register a click listener
-        login.setOnClickListener { view ->
-
-            view as FloatingActionButton
-
-            if (userData.isSignedIn.value!!) {
-                System.signOut()
-            } else {
-                System.signIn(this)
-            }
-        }
-    }
 }

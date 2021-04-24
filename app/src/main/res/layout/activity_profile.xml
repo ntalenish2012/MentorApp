@@ -39,12 +39,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lab_name"
+            android:textStyle="bold"
             android:layout_margin="20dp"
             android:textSize="25sp"
         />
 
         <EditText
-            android:id="@+id/editTextTextPersonName"
+            android:id="@+id/name2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -57,12 +58,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lab_role"
+            android:textStyle="bold"
             android:layout_margin="20dp"
             android:textSize="25sp"
             />
 
         <EditText
-            android:id="@+id/editTextTextPersonName2"
+            android:id="@+id/role2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -74,12 +76,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lab_outcome"
+            android:textStyle="bold"
             android:layout_margin="20dp"
             android:textSize="25sp"
             />
 
         <EditText
-            android:id="@+id/editTextOutcome"
+            android:id="@+id/bio2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
@@ -91,12 +94,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/lab_email"
+            android:textStyle="bold"
             android:layout_margin="20dp"
             android:textSize="25sp"
             />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/email2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"

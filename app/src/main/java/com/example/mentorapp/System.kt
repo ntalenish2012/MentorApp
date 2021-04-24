@@ -5,6 +5,7 @@ import android.content.Context
 import android.content.Intent
 import android.util.Log
 import com.amplifyframework.AmplifyException
+import com.amplifyframework.api.aws.AWSApiPlugin
 import com.amplifyframework.auth.AuthChannelEventName
 import com.amplifyframework.auth.AuthException
 import com.amplifyframework.auth.cognito.AWSCognitoAuthPlugin
@@ -13,6 +14,7 @@ import com.amplifyframework.auth.result.AuthSessionResult
 import com.amplifyframework.auth.result.AuthSignInResult
 import com.amplifyframework.core.Amplify
 import com.amplifyframework.core.InitializationStatus
+import com.amplifyframework.datastore.AWSDataStorePlugin
 import com.amplifyframework.hub.HubChannel
 import com.amplifyframework.hub.HubEvent
 
@@ -22,6 +24,8 @@ object System {
 
     fun initialize(applicationContext: Context) : System {
         try {
+            Amplify.addPlugin(AWSApiPlugin())
+            Amplify.addPlugin(AWSDataStorePlugin())
             Amplify.addPlugin(AWSCognitoAuthPlugin())
             Amplify.configure(applicationContext)
             Log.i(TAG, "Initialized Amplify")
