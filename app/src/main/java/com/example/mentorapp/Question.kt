@@ -23,6 +23,9 @@ class Question: AppCompatActivity() {
 
         val edit: Button = findViewById(R.id.submit)
         edit.setOnClickListener{
+           /* val theAnswer1 = answer1.checkedRadioButtonId
+            val theAnswer2 = answer2.checkedRadioButtonId
+            val theAnswer3 = answer3.spinner*/
             startActivity(Intent(this, Results::class.java))
         }
 
