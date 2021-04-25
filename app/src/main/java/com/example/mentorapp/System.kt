@@ -28,6 +28,7 @@ object System {
             Amplify.addPlugin(AWSDataStorePlugin())
             Amplify.addPlugin(AWSCognitoAuthPlugin())
             Amplify.configure(applicationContext)
+
             Log.i(TAG, "Initialized Amplify")
         } catch (e: AmplifyException) {
             Log.e(TAG, "Could not initialize Amplify", e)
@@ -108,4 +109,5 @@ object System {
             Amplify.Auth.handleWebUISignInResponse(data)
         }
     }
+
 }

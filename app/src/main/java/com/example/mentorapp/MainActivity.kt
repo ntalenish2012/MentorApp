@@ -7,22 +7,26 @@ import android.util.Log
 import android.widget.Button
 import android.widget.TextView
 import androidx.lifecycle.observe
+import com.amazonaws.mobile.client.AWSMobileClient
 import com.amplifyframework.core.Amplify
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.activity_log_in.*
 
+
+
 class MainActivity : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       /* UserData.isSignedIn.observe(this, { isSignedIn ->
+       UserData.isSignedIn.observe(this, { isSignedIn ->
             if (isSignedIn) {
                 Log.i("TAG"," user loged in")
             }else{
                 startActivity(Intent(this, LogIn::class.java))
             }
-        })*/
+        })
 
         val name: TextView = findViewById(R.id.name1)
         val role: TextView = findViewById(R.id.role1)
@@ -30,7 +34,8 @@ class MainActivity : AppCompatActivity() {
         val bio: TextView = findViewById(R.id.bio1)
 
 
-        role.text = UserData.isSignedIn.value.toString()
+        role.text = AWSMobileClient.getInstance().username
+
 
         val edit: Button = findViewById(R.id.EditInfo)
         edit.setOnClickListener{
@@ -57,6 +62,8 @@ class MainActivity : AppCompatActivity() {
       //  }
 
     }
+
+
     // TODO: pull data to go in the text fields
 }
 
