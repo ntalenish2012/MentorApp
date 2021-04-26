@@ -30,6 +30,7 @@ class EditUser: AppCompatActivity() {
 
             updateUserProfile(userName, userRole, userEmail, userBio)
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
 
         val cancel: Button = findViewById(R.id.cancel)

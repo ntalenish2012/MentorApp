@@ -1,7 +1,9 @@
 package com.example.mentorapp
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.amplifyframework.datastore.generated.model.UserProfile
 
 // a singleton to hold user data (this is a ViewModel pattern, without inheriting from ViewModel)
 object UserData {
@@ -21,45 +23,49 @@ object UserData {
         _isSignedIn.postValue(newValue)
     }
 
-    // the notes
-   // private val _notes = MutableLiveData<MutableList<Note>>(mutableListOf())
+    // the user
+   private val _users = MutableLiveData<MutableList<User>>(mutableListOf())
 
-    // please check https://stackoverflow.com/questions/47941537/notify-observer-when-item-is-added-to-list-of-livedata
-   // private fun <T> MutableLiveData<T>.notifyObserver() {
-   //     this.postValue(this.value)
-   // }
-   // fun notifyObserver() {
-     //   this._notes.notifyObserver()
-   // }
+    private fun <T> MutableLiveData<T>.notifyObserver() {
+        this.postValue(this.value)
+    }
+    fun notifyObserver() {
+        this._users.notifyObserver()
+    }
 
-   // fun notes() : LiveData<MutableList<Note>>  = _notes
-    //fun addNote(n : Note) {
-//        val notes = _notes.value
-//        if (notes != null) {
-//            notes.add(n)
-//            _notes.notifyObserver()
-//        } else {
-//            Log.e(TAG, "addNote : note collection is null !!")
-//        }
-//    }
-//    fun deleteNote(at: Int) : Note?  {
-//        val note = _notes.value?.removeAt(at)
-//        _notes.notifyObserver()
-//        return note
-//    }
-//
-//    fun resetNotes() {
-//        this._notes.value?.clear()  //used when signing out
-//        _notes.notifyObserver()
-//    }
-//
-//
-//    // a note data class
-//    data class Note(val id: String, val name: String, val description: String, var imageName: String? = null) {
-//        override fun toString(): String = name
-//
-//        // bitmap image
-//        var image : Bitmap? = null
-//
-//    }
+    fun users() : LiveData<MutableList<User>>  = _users
+    fun addUser(n : User) {
+        val notes = _users.value
+        if (notes != null) {
+            notes.add(n)
+            _users.notifyObserver()
+        } else {
+            Log.e(TAG, "addUser : user collection is null !!")
+        }
+    }
+
+    data class User(val id: String, val name: String, val bio: String, val email: String, val role: String) {
+        override fun toString(): String = name
+
+        // return an API NoteData from this Note object
+        val data : UserProfile
+            get() = UserProfile.builder()
+                .name(this.name)
+                .bio(this.bio)
+                .id(this.id)
+                .email(this.email)
+                .role(this.role)
+                .build()
+
+        // static function to create a Note from a NoteData API object
+        companion object {
+            fun from(userData : UserProfile) : User {
+                val result = User(userData.id, userData.name, userData.bio, userData.email, userData.role)
+                // some additional code will come here later
+                return result
+            }
+        }
+
+    }
+
 }

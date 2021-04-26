@@ -138,6 +138,14 @@
                             android:textSize="30sp"
                             android:layout_marginTop="20dp"/>
 
+                        <Button
+                            android:id="@+id/Results"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="@string/btn_results"
+                            android:textSize="30sp"
+                            android:layout_marginTop="20dp"/>
+
 
                         <com.google.android.material.floatingactionbutton.FloatingActionButton
                             android:id="@+id/logout"

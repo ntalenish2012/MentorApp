@@ -4,6 +4,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.util.Log
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.RecyclerView
 import com.amplifyframework.AmplifyException
 import com.amplifyframework.api.aws.AWSApiPlugin
 import com.amplifyframework.auth.AuthChannelEventName
@@ -15,6 +17,7 @@ import com.amplifyframework.auth.result.AuthSignInResult
 import com.amplifyframework.core.Amplify
 import com.amplifyframework.core.InitializationStatus
 import com.amplifyframework.datastore.AWSDataStorePlugin
+import com.amplifyframework.datastore.generated.model.UserProfile
 import com.amplifyframework.hub.HubChannel
 import com.amplifyframework.hub.HubEvent
 
@@ -109,5 +112,32 @@ object System {
             Amplify.Auth.handleWebUISignInResponse(data)
         }
     }
+    //CRUD tasks
+
+    fun getUser(){
+        Amplify.DataStore.query(
+            UserProfile::class.java,
+            { items ->
+                UserData.users().value?.clear()
+                while (items.hasNext()) {
+                    val item = items.next()
+                    Log.i("Amplify", "Queried item: " + item.id)
+                    UserData.addUser(UserData.User.from(item))
+                }
+            },
+            { failure -> Log.e("Tutorial", "Could not query DataStore", failure) }
+        )
+    }
+    // recycler view is the list of cells
+//    private fun setupRecyclerView(recyclerView: RecyclerView) {
+//
+//        // update individual cell when the Note data are modified
+//        System.card().observe(this, Observer<MutableList<UserData.matched>> { notes ->
+//            Log.d(TAG, "card data received ${notes.size} notes")
+//
+//            // let's create a RecyclerViewAdapter that manages the individual cells
+//            recyclerView.adapter = (notes)
+//        })
+//    }
 
 }
