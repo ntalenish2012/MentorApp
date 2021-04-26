@@ -89,9 +89,12 @@ class Question: AppCompatActivity() {
 
         val edit: Button = findViewById(R.id.submit)
         edit.setOnClickListener {
-            /* val theAnswer1 = answer1.checkedRadioButtonId
+           /* val theAnswer1 = answer1.checkedRadioButtonId
             val theAnswer2 = answer2.checkedRadioButtonId
-            val theAnswer3 = answer3.spinner*/
+            val theAnswer3 = answer3.spinner
+            val theAnswer4 = answer4.spinner
+            val theAnswer5 = answer5.checkedRadioButtonId
+            val theAnswer6 = answer6.checkedRadioButtonId*/
             saveAnswers(Qone, Qtwo, Qthree, Qfour, Qfive, Qsix)
             startActivity(Intent(this, Results::class.java))
             finish()

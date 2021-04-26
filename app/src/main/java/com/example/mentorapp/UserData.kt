@@ -1,9 +1,13 @@
 package com.example.mentorapp
 
+import android.icu.text.Normalizer
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.amplifyframework.datastore.generated.model.QuizResults
 import com.amplifyframework.datastore.generated.model.UserProfile
+import com.amplifyframework.datastore.generated.model.Matches
+
 
 // a singleton to hold user data (this is a ViewModel pattern, without inheriting from ViewModel)
 object UserData {
@@ -57,6 +61,7 @@ object UserData {
                 .role(this.role)
                 .build()
 
+
         // static function to create a Note from a NoteData API object
         companion object {
             fun from(userData : UserProfile) : User {
@@ -64,6 +69,50 @@ object UserData {
                 // some additional code will come here later
                 return result
             }
+        }
+
+    }
+
+
+//match
+    private val _matches = MutableLiveData<MutableList<Matches>>(mutableListOf())
+
+
+    fun notifyObserver1() {
+        this._matches.notifyObserver()
+    }
+
+    fun matches() : LiveData<MutableList<Matches>>  = _matches
+    fun addMatch(n : Matches) {
+        val notes = _matches.value
+        if (notes != null) {
+            notes.add(n)
+            _matches.notifyObserver()
+        } else {
+            Log.e(TAG, "addMatch : match collection is null !!")
+        }
+    }
+
+    data class Matches(val id: String, val userName: String, val email: String, val type: String, val group: String) {
+
+        // return an API NoteData from this Note object
+        val data : Matches
+            get() = Matches.builder()
+                .id(this.id)
+                .userName(this.userName)
+                .email(this.email)
+                .type(this.type)
+                .group(this.group)
+                .build()
+
+        // static function to create a Note from a NoteData API object
+        companion object {
+            fun from(userMatch : Matches) : Matches {
+                val result = Matches(userMatch.id, userMatch.userName, userMatch.email, userMatch.type, userMatch.group)
+                // some additional code will come here later
+                return result
+            }
+
         }
 
     }

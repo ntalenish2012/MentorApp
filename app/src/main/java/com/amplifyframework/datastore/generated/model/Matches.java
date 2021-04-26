@@ -27,9 +27,13 @@ public final class Matches implements Model {
   public static final QueryField ID = field("id");
   public static final QueryField USER_NAME = field("UserName");
   public static final QueryField EMAIL = field("Email");
+  public static final QueryField TYPE = field("Type");
+  public static final QueryField GROUP = field("Group");
   private final @ModelField(targetType="ID", isRequired = true) String id;
   private final @ModelField(targetType="String") String UserName;
   private final @ModelField(targetType="String") String Email;
+  private final @ModelField(targetType="String") String Type;
+  private final @ModelField(targetType="String") String Group;
   public String getId() {
       return id;
   }
@@ -42,10 +46,20 @@ public final class Matches implements Model {
       return Email;
   }
   
-  private Matches(String id, String UserName, String Email) {
+  public String getType() {
+      return Type;
+  }
+  
+  public String getGroup() {
+      return Group;
+  }
+  
+  private Matches(String id, String UserName, String Email, String Type, String Group) {
     this.id = id;
     this.UserName = UserName;
     this.Email = Email;
+    this.Type = Type;
+    this.Group = Group;
   }
   
   @Override
@@ -58,7 +72,9 @@ public final class Matches implements Model {
       Matches matches = (Matches) obj;
       return ObjectsCompat.equals(getId(), matches.getId()) &&
               ObjectsCompat.equals(getUserName(), matches.getUserName()) &&
-              ObjectsCompat.equals(getEmail(), matches.getEmail());
+              ObjectsCompat.equals(getEmail(), matches.getEmail()) &&
+              ObjectsCompat.equals(getType(), matches.getType()) &&
+              ObjectsCompat.equals(getGroup(), matches.getGroup());
       }
   }
   
@@ -68,6 +84,8 @@ public final class Matches implements Model {
       .append(getId())
       .append(getUserName())
       .append(getEmail())
+      .append(getType())
+      .append(getGroup())
       .toString()
       .hashCode();
   }
@@ -78,7 +96,9 @@ public final class Matches implements Model {
       .append("Matches {")
       .append("id=" + String.valueOf(getId()) + ", ")
       .append("UserName=" + String.valueOf(getUserName()) + ", ")
-      .append("Email=" + String.valueOf(getEmail()))
+      .append("Email=" + String.valueOf(getEmail()) + ", ")
+      .append("Type=" + String.valueOf(getType()) + ", ")
+      .append("Group=" + String.valueOf(getGroup()))
       .append("}")
       .toString();
   }
@@ -109,6 +129,8 @@ public final class Matches implements Model {
     return new Matches(
       id,
       null,
+      null,
+      null,
       null
     );
   }
@@ -116,13 +138,17 @@ public final class Matches implements Model {
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
       UserName,
-      Email);
+      Email,
+      Type,
+      Group);
   }
   public interface BuildStep {
     Matches build();
     BuildStep id(String id) throws IllegalArgumentException;
     BuildStep userName(String userName);
     BuildStep email(String email);
+    BuildStep type(String type);
+    BuildStep group(String group);
   }
   
 
@@ -130,6 +156,8 @@ public final class Matches implements Model {
     private String id;
     private String UserName;
     private String Email;
+    private String Type;
+    private String Group;
     @Override
      public Matches build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
@@ -137,7 +165,9 @@ public final class Matches implements Model {
         return new Matches(
           id,
           UserName,
-          Email);
+          Email,
+          Type,
+          Group);
     }
     
     @Override
@@ -149,6 +179,18 @@ public final class Matches implements Model {
     @Override
      public BuildStep email(String email) {
         this.Email = email;
+        return this;
+    }
+    
+    @Override
+     public BuildStep type(String type) {
+        this.Type = type;
+        return this;
+    }
+    
+    @Override
+     public BuildStep group(String group) {
+        this.Group = group;
         return this;
     }
     
@@ -175,10 +217,12 @@ public final class Matches implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String userName, String email) {
+    private CopyOfBuilder(String id, String userName, String email, String type, String group) {
       super.id(id);
       super.userName(userName)
-        .email(email);
+        .email(email)
+        .type(type)
+        .group(group);
     }
     
     @Override
@@ -189,6 +233,16 @@ public final class Matches implements Model {
     @Override
      public CopyOfBuilder email(String email) {
       return (CopyOfBuilder) super.email(email);
+    }
+    
+    @Override
+     public CopyOfBuilder type(String type) {
+      return (CopyOfBuilder) super.type(type);
+    }
+    
+    @Override
+     public CopyOfBuilder group(String group) {
+      return (CopyOfBuilder) super.group(group);
     }
   }
   
