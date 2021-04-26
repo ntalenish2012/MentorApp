@@ -25,20 +25,55 @@ import static com.amplifyframework.core.model.query.predicate.QueryField.field;
 })
 public final class QuizResults implements Model {
   public static final QueryField ID = field("id");
-  public static final QueryField EMAIL = field("email");
+  public static final QueryField QONE = field("Qone");
+  public static final QueryField QTWO = field("Qtwo");
+  public static final QueryField QTHREE = field("Qthree");
+  public static final QueryField QFOUR = field("Qfour");
+  public static final QueryField QFIVE = field("Qfive");
+  public static final QueryField QSIX = field("Qsix");
   private final @ModelField(targetType="ID", isRequired = true) String id;
-  private final @ModelField(targetType="String") String email;
+  private final @ModelField(targetType="String") String Qone;
+  private final @ModelField(targetType="String") String Qtwo;
+  private final @ModelField(targetType="String") String Qthree;
+  private final @ModelField(targetType="String") String Qfour;
+  private final @ModelField(targetType="String") String Qfive;
+  private final @ModelField(targetType="String") String Qsix;
   public String getId() {
       return id;
   }
   
-  public String getEmail() {
-      return email;
+  public String getQone() {
+      return Qone;
   }
   
-  private QuizResults(String id, String email) {
+  public String getQtwo() {
+      return Qtwo;
+  }
+  
+  public String getQthree() {
+      return Qthree;
+  }
+  
+  public String getQfour() {
+      return Qfour;
+  }
+  
+  public String getQfive() {
+      return Qfive;
+  }
+  
+  public String getQsix() {
+      return Qsix;
+  }
+  
+  private QuizResults(String id, String Qone, String Qtwo, String Qthree, String Qfour, String Qfive, String Qsix) {
     this.id = id;
-    this.email = email;
+    this.Qone = Qone;
+    this.Qtwo = Qtwo;
+    this.Qthree = Qthree;
+    this.Qfour = Qfour;
+    this.Qfive = Qfive;
+    this.Qsix = Qsix;
   }
   
   @Override
@@ -50,7 +85,12 @@ public final class QuizResults implements Model {
       } else {
       QuizResults quizResults = (QuizResults) obj;
       return ObjectsCompat.equals(getId(), quizResults.getId()) &&
-              ObjectsCompat.equals(getEmail(), quizResults.getEmail());
+              ObjectsCompat.equals(getQone(), quizResults.getQone()) &&
+              ObjectsCompat.equals(getQtwo(), quizResults.getQtwo()) &&
+              ObjectsCompat.equals(getQthree(), quizResults.getQthree()) &&
+              ObjectsCompat.equals(getQfour(), quizResults.getQfour()) &&
+              ObjectsCompat.equals(getQfive(), quizResults.getQfive()) &&
+              ObjectsCompat.equals(getQsix(), quizResults.getQsix());
       }
   }
   
@@ -58,7 +98,12 @@ public final class QuizResults implements Model {
    public int hashCode() {
     return new StringBuilder()
       .append(getId())
-      .append(getEmail())
+      .append(getQone())
+      .append(getQtwo())
+      .append(getQthree())
+      .append(getQfour())
+      .append(getQfive())
+      .append(getQsix())
       .toString()
       .hashCode();
   }
@@ -68,7 +113,12 @@ public final class QuizResults implements Model {
     return new StringBuilder()
       .append("QuizResults {")
       .append("id=" + String.valueOf(getId()) + ", ")
-      .append("email=" + String.valueOf(getEmail()))
+      .append("Qone=" + String.valueOf(getQone()) + ", ")
+      .append("Qtwo=" + String.valueOf(getQtwo()) + ", ")
+      .append("Qthree=" + String.valueOf(getQthree()) + ", ")
+      .append("Qfour=" + String.valueOf(getQfour()) + ", ")
+      .append("Qfive=" + String.valueOf(getQfive()) + ", ")
+      .append("Qsix=" + String.valueOf(getQsix()))
       .append("}")
       .toString();
   }
@@ -98,36 +148,91 @@ public final class QuizResults implements Model {
     }
     return new QuizResults(
       id,
+      null,
+      null,
+      null,
+      null,
+      null,
       null
     );
   }
   
   public CopyOfBuilder copyOfBuilder() {
     return new CopyOfBuilder(id,
-      email);
+      Qone,
+      Qtwo,
+      Qthree,
+      Qfour,
+      Qfive,
+      Qsix);
   }
   public interface BuildStep {
     QuizResults build();
     BuildStep id(String id) throws IllegalArgumentException;
-    BuildStep email(String email);
+    BuildStep qone(String qone);
+    BuildStep qtwo(String qtwo);
+    BuildStep qthree(String qthree);
+    BuildStep qfour(String qfour);
+    BuildStep qfive(String qfive);
+    BuildStep qsix(String qsix);
   }
   
 
   public static class Builder implements BuildStep {
     private String id;
-    private String email;
+    private String Qone;
+    private String Qtwo;
+    private String Qthree;
+    private String Qfour;
+    private String Qfive;
+    private String Qsix;
     @Override
      public QuizResults build() {
         String id = this.id != null ? this.id : UUID.randomUUID().toString();
         
         return new QuizResults(
           id,
-          email);
+          Qone,
+          Qtwo,
+          Qthree,
+          Qfour,
+          Qfive,
+          Qsix);
     }
     
     @Override
-     public BuildStep email(String email) {
-        this.email = email;
+     public BuildStep qone(String qone) {
+        this.Qone = qone;
+        return this;
+    }
+    
+    @Override
+     public BuildStep qtwo(String qtwo) {
+        this.Qtwo = qtwo;
+        return this;
+    }
+    
+    @Override
+     public BuildStep qthree(String qthree) {
+        this.Qthree = qthree;
+        return this;
+    }
+    
+    @Override
+     public BuildStep qfour(String qfour) {
+        this.Qfour = qfour;
+        return this;
+    }
+    
+    @Override
+     public BuildStep qfive(String qfive) {
+        this.Qfive = qfive;
+        return this;
+    }
+    
+    @Override
+     public BuildStep qsix(String qsix) {
+        this.Qsix = qsix;
         return this;
     }
     
@@ -154,14 +259,44 @@ public final class QuizResults implements Model {
   
 
   public final class CopyOfBuilder extends Builder {
-    private CopyOfBuilder(String id, String email) {
+    private CopyOfBuilder(String id, String qone, String qtwo, String qthree, String qfour, String qfive, String qsix) {
       super.id(id);
-      super.email(email);
+      super.qone(qone)
+        .qtwo(qtwo)
+        .qthree(qthree)
+        .qfour(qfour)
+        .qfive(qfive)
+        .qsix(qsix);
     }
     
     @Override
-     public CopyOfBuilder email(String email) {
-      return (CopyOfBuilder) super.email(email);
+     public CopyOfBuilder qone(String qone) {
+      return (CopyOfBuilder) super.qone(qone);
+    }
+    
+    @Override
+     public CopyOfBuilder qtwo(String qtwo) {
+      return (CopyOfBuilder) super.qtwo(qtwo);
+    }
+    
+    @Override
+     public CopyOfBuilder qthree(String qthree) {
+      return (CopyOfBuilder) super.qthree(qthree);
+    }
+    
+    @Override
+     public CopyOfBuilder qfour(String qfour) {
+      return (CopyOfBuilder) super.qfour(qfour);
+    }
+    
+    @Override
+     public CopyOfBuilder qfive(String qfive) {
+      return (CopyOfBuilder) super.qfive(qfive);
+    }
+    
+    @Override
+     public CopyOfBuilder qsix(String qsix) {
+      return (CopyOfBuilder) super.qsix(qsix);
     }
   }
   
